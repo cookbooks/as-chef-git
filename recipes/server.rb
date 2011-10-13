@@ -34,7 +34,7 @@ template "#{repo_dir}/.ssh/authorized_keys" do
     mode "0600"
     variables :git_keys => keys 
 end
-  
+ 
 search(:git_repos, "*:*").each do |repo|
 
   repo_path = "#{repo_dir}/#{repo[:id]}.git"
