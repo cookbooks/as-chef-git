@@ -10,7 +10,6 @@ user username do
 end
 
 group username do
-  comment "Git group"
   action :create
 end
 
