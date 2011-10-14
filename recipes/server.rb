@@ -4,15 +4,15 @@ include_recipe "git"
 username = node["git"]["user"]
 repo_dir = node["git"]["repo_dir"]
 
+user username do
+  comment "Git User"
+  home repo_dir
+end
+
 directory repo_dir do
   owner username
   group username
   recursive true
-end
-
-user username do
-  comment "Git User"
-  home repo_dir
 end
 
 directory "#{repo_dir}/.ssh" do
