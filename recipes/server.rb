@@ -9,6 +9,11 @@ user username do
   home repo_dir
 end
 
+group username do
+  comment "Git group"
+  action :create
+end
+
 directory repo_dir do
   owner username
   group username
@@ -29,8 +34,8 @@ end
 
 template "#{repo_dir}/.ssh/authorized_keys" do
     source "authorized_keys.erb"
-    owner "git"
-    group "git"
+    owner username
+    group username
     mode "0600"
     variables :git_keys => keys 
 end
@@ -40,8 +45,8 @@ search(:git_repos, "*:*").each do |repo|
   repo_path = "#{repo_dir}/#{repo[:id]}.git"
   
   directory repo_path do
-    owner "git"
-    group "git"
+    owner username
+    group username
     mode "2775"
   end
 
