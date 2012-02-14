@@ -10,6 +10,9 @@
 case node[:platform]
 when "debian", "ubuntu"
   package "git-core"
+when "centos"
+  package "git"
+  provider Chef::Provider::Package::PkgSrc
 else 
   package "git"
 end
