@@ -10,11 +10,6 @@
 case node[:platform]
 when "debian", "ubuntu"
   package "git-core"
-when "centos"
-  package "scmgit" do
-    action :install
-    provider Chef::Provider::Package::PkgSrc
-  end
 else 
   package "git"
 end
