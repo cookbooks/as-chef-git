@@ -16,6 +16,7 @@ Tested on
 
 * Ubuntu 10.04
 * Solaris 10
+* CentOS 6
 
 Data bags named users and git_repos must exist (see USAGE).
 
